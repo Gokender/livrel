@@ -1,10 +1,7 @@
-import yaml
 from jinja2 import Environment, FileSystemLoader
 from bs4 import BeautifulSoup
 import roman
 import os
-
-CONF_FILENAME = 'book.yaml'
 
 def generate_chapter(part_id, chapter_id, filepath, with_part):
     """
@@ -39,22 +36,13 @@ def generate_chapter(part_id, chapter_id, filepath, with_part):
         file.write(output)
 
 
-with open(CONF_FILENAME, 'r') as infile:
-    data = yaml.load(infile, Loader=yaml.FullLoader)
 
-print(data)
 
 for key,value in data['bodymatter'].items():
     if value is not None:
         print(key,value)
 
-print('_____ Generation of the structure _____')
-book_directory_name = '{}_{}'.format(data['author'].lower().replace(' ', '-'), data['title'].lower().replace(' ', '-'))
-try:
-    os.mkdir(os.path.join('dist', book_directory_name))
-    print('Book directory {} created'.format(book_directory_name))
-except FileExistsError as error:
-    print('The directory {} already exists'.format(book_directory_name))
+
 
 
 print('_____ Generation of the bodymatter _____')
