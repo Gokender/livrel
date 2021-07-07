@@ -1,0 +1,47 @@
+title: Les Trois Mousquetaires
+author: Alexandre Dumas
+
+### Front matter
+frontmatter:
+  halftitle: ~
+  #frontispiece: ~
+  titlepage: ~
+  colophon: ~
+  dedication: ~
+  epigraph: ~
+  toc: ~
+  foreword: ~
+  preface: yes
+  acknowledgments: ~
+  introduction: ~
+  prologue: ~
+
+### Bodymatter
+bodymatter:
+  part: 1
+  chapter:
+    - 1 #67 
+  #division: ~
+  #volume: 2 #~
+  #nb_chapter: 67
+
+### Backmatter
+backmatter:
+  epilogue: ~
+  #outro: ~
+  afterword: ~
+  conclusion: ~
+  postscript: ~
+  appendix: ~
+  glossary: ~
+  bibliography: ~
+  index: ~
+  colophon: ~
+  postface: ~
+
+#### Documents sections
+#preamble: ~
+#conclusion: ~
+#epilogue: yes
+#afterword: ~
+#epigraph: ~

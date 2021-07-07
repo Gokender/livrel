@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block body %}
+        <section id="part-{{part_id}}" epub:type="part">
+            <section id="chapter-{{part_id}}-{{chapter_id}}" epub:type="bodymatter chapter">
+                <header>
+                    <h1>Chapitre {{chapter_id_roman}}</h1>
+                    <h2>{{chapter_title}}</h2>
+                </header>
+                <p>Lorem ipsum</p>
+            </section>
+        </section>{% endblock %}
+
+

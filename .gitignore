@@ -1,0 +1,11 @@
+/.venv
+/.vscode
+/3_mousquetaires.html
+/output.xhtml
+/output1.xhtml
+/output2.xhtml
+/raw_format.xhtml
+/test.ipynb
+/test.py
+/test.txt
+/__pycache__
