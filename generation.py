@@ -6,7 +6,10 @@ import os
 
 CONF_FILENAME = 'book.yaml'
 
-def generate_chapter(data, part_id, chapter_id, filepath, with_part):
+def generate_chapter(part_id, chapter_id, filepath, with_part):
+    """
+    Generate chapter
+    """
 
     file_loader = FileSystemLoader('templates')
     env = Environment(loader=file_loader)
@@ -48,14 +51,14 @@ for key,value in data['bodymatter'].items():
 print('_____ Generation of the structure _____')
 book_directory_name = '{}_{}'.format(data['author'].lower().replace(' ', '-'), data['title'].lower().replace(' ', '-'))
 try:
-    os.mkdir(book_directory_name)
+    os.mkdir(os.path.join('dist', book_directory_name))
     print('Book directory {} created'.format(book_directory_name))
 except FileExistsError as error:
     print('The directory {} already exists'.format(book_directory_name))
 
 
 print('_____ Generation of the bodymatter _____')
-if data['bodymatter']['part'] is not None:
+if data['bodymatter']['part'] is not None: #TODO: DELETE
 
     if data['bodymatter']['part'] != len(data['bodymatter']['chapter']):
         print('ERROR')
@@ -69,11 +72,11 @@ if data['bodymatter']['part'] is not None:
             nb_chapter = data['bodymatter']['chapter'][part_id]
 
             filename = 'chapter_{}_{}.xhtml'.format(str(part_id+1).zfill(len(str(part_id))), str(chapter_id+1).zfill(len(str(nb_chapter))))
-            filepath = os.path.join(book_directory_name, filename)
+            filepath = os.path.join('dist', book_directory_name, filename)
 
             if data['bodymatter']['part'] == 1:
                 with_part = False
             else:
                 with_part= True
             
-            generate_chapter(data, part_id+1, chapter_id+1, filepath, with_part)
+            generate_chapter(part_id+1, chapter_id+1, filepath, with_part)
