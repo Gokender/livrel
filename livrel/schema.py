@@ -32,9 +32,33 @@ schema_stage_direction = {
     }
 }
 
-
 schema_scene = {
     'scene': {
-
+        'type': 'integer',
+        'required': True,
+        'nullable': False,
+        'empty': False
+    },
+    'personnages': {
+        'type': 'list',
+        'schema': {
+            'type': 'string',
+            'required': True,
+            'nullable': False,
+            'empty': False
+        },
+        'required': True,
+        'nullable': False,
+        'empty': False
     }
+}
+
+drama = {
+    'personnage': {
+        'type': 'string',
+        'required': True,
+        'nullable': False,
+        'empty': False
+    },
+    **schema_stage_direction
 }
