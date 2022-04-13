@@ -1,4 +1,2 @@
-beautifulsoup4
-PyYAML
-roman
-Jinja2
+ruamel.yaml
+cerberus
